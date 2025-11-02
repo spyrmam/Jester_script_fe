@@ -1,73 +1,89 @@
-if game:GetService("RunService"):IsClient() then error("Script must be server-side in order to work; use h/ and not hl/") end local Player,Mouse,mouse,UserInputService,ContextActionService = owner do print("Dis shit was made by spyrmam!") script.Parent = Player.Character
-
---RemoteEvent for communicating
-local Event = Instance.new("RemoteEvent")
-Event.Name = "UserInput_Event"
+-- This script has been converted to FE by iPxter
 
 
---Creating fake input objects with fake variables
-local m = {Target=nil,Hit=CFrame.new(),KeyUp=fakeEvent(),KeyDown=fakeEvent(),Button1Up=fakeEvent(),Button1Down=fakeEvent()}
-local UIS = {InputBegan=fakeEvent(),InputEnded=fakeEvent()}
-local CAS = {Actions={},BindAction=function(self,name,fun,touch,...)
-	CAS.Actions[name] = fun and {Name=name,Function=fun,Keys={...}} or nil
-end}
---Merged 2 functions into one by checking amount of arguments
-CAS.UnbindAction = CAS.BindAction
+if game:GetService("RunService"):IsClient() then error("Script must be server-side in order to work; use h/ and not hl/") end
+local Player,Mouse,mouse,UserInputService,ContextActionService = owner
+do
+	print("FE Compatibility code by Mokiros | Translated to FE by iPxter")
+	script.Parent = Player.Character
 
---This function will trigger the events that have been :Connect()'ed
-local function te(self,ev,...)
-	local t = m[ev]
-	if t and t._fakeEvent and t.Function then
-		t.Function(...)
+	--RemoteEvent for communicating
+	local Event = Instance.new("RemoteEvent")
+	Event.Name = "UserInput_Event"
+
+	--Fake event to make stuff like Mouse.KeyDown work
+	local function fakeEvent()
+		local t = {_fakeEvent=true,Connect=function(self,f)self.Function=f end}
+		t.connect = t.Connect
+		return t
 	end
-end
-m.TrigEvent = te
-UIS.TrigEvent = te
 
-Event.OnServerEvent:Connect(function(plr,io)
-    if plr~=Player then return end
-	if io.isMouse then
-		m.Target = io.Target
-		m.Hit = io.Hit
-	else
-		local b = io.UserInputState == Enum.UserInputState.Begin
-		if io.UserInputType == Enum.UserInputType.MouseButton1 then
-			return m:TrigEvent(b and "Button1Down" or "Button1Up")
+	--Creating fake input objects with fake variables
+    local m = {Target=nil,Hit=CFrame.new(),KeyUp=fakeEvent(),KeyDown=fakeEvent(),Button1Up=fakeEvent(),Button1Down=fakeEvent()}
+	local UIS = {InputBegan=fakeEvent(),InputEnded=fakeEvent()}
+	local CAS = {Actions={},BindAction=function(self,name,fun,touch,...)
+		CAS.Actions[name] = fun and {Name=name,Function=fun,Keys={...}} or nil
+	end}
+	--Merged 2 functions into one by checking amount of arguments
+	CAS.UnbindAction = CAS.BindAction
+
+	--This function will trigger the events that have been :Connect()'ed
+	local function te(self,ev,...)
+		local t = m[ev]
+		if t and t._fakeEvent and t.Function then
+			t.Function(...)
 		end
-		for _,t in pairs(CAS.Actions) do
-			for _,k in pairs(t.Keys) do
-				if k==io.KeyCode then
-					t.Function(t.Name,io.UserInputState,io)
+	end
+	m.TrigEvent = te
+	UIS.TrigEvent = te
+
+	Event.OnServerEvent:Connect(function(plr,io)
+	    if plr~=Player then return end
+		if io.isMouse then
+			m.Target = io.Target
+			m.Hit = io.Hit
+		else
+			local b = io.UserInputState == Enum.UserInputState.Begin
+			if io.UserInputType == Enum.UserInputType.MouseButton1 then
+				return m:TrigEvent(b and "Button1Down" or "Button1Up")
+			end
+			for _,t in pairs(CAS.Actions) do
+				for _,k in pairs(t.Keys) do
+					if k==io.KeyCode then
+						t.Function(t.Name,io.UserInputState,io)
+					end
 				end
 			end
-		end
-		m:TrigEvent(b and "KeyDown" or "KeyUp",io.KeyCode.Name:lower())
-		UIS:TrigEvent(b and "InputBegan" or "InputEnded",io,false)
-    end
-end)
-Event.Parent = NLS([==[
-local Player = owner
-local Event = script:WaitForChild("UserInput_Event")
+			m:TrigEvent(b and "KeyDown" or "KeyUp",io.KeyCode.Name:lower())
+			UIS:TrigEvent(b and "InputBegan" or "InputEnded",io,false)
+	    end
+	end)
+	Event.Parent = NLS([==[
+	local Player = game:GetService("Players").LocalPlayer
+	local Event = script:WaitForChild("UserInput_Event")
 
-local UIS = game:GetService("UserInputService")
-local input = function(io,a)
-	if a then return end
-	--Since InputObject is a client-side instance, we create and pass table instead
-	Event:FireServer({KeyCode=io.KeyCode,UserInputType=io.UserInputType,UserInputState=io.UserInputState})
-end
-UIS.InputBegan:Connect(input)
-UIS.InputEnded:Connect(input)
-local h,t
---Give the server mouse data 30 times every second, but only if the values changed
---If player is not moving their mouse, client won't fire events
-while wait(1/30) do
-	if h~=Mouse.Hit or t~=Mouse.Target then
-		h,t=Mouse.Hit,Mouse.Target
-		Event:FireServer({isMouse=true,Target=t,Hit=h})
+	local UIS = game:GetService("UserInputService")
+	local input = function(io,a)
+		if a then return end
+		--Since InputObject is a client-side instance, we create and pass table instead
+		Event:FireServer({KeyCode=io.KeyCode,UserInputType=io.UserInputType,UserInputState=io.UserInputState})
 	end
-end]==],Player.Character)
-Mouse,mouse,UserInputService,ContextActionService = m,m,UIS,CAS
+	UIS.InputBegan:Connect(input)
+	UIS.InputEnded:Connect(input)
+
+	local Mouse = Player:GetMouse()
+	local h,t
+	--Give the server mouse data 30 times every second, but only if the values changed
+	--If player is not moving their mouse, client won't fire events
+	while wait(1/30) do
+		if h~=Mouse.Hit or t~=Mouse.Target then
+			h,t=Mouse.Hit,Mouse.Target
+			Event:FireServer({isMouse=true,Target=t,Hit=h})
+		end
+	end]==],Player.Character)
+	Mouse,mouse,UserInputService,ContextActionService = m,m,UIS,CAS
 end
+
 
 
 --Everything is Meaningless.....
