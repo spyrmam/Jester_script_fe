@@ -350,7 +350,7 @@ function Damage(Part, hit, minim, maxim, knockback, Type, Property, Delay, HitSo
 		}
 		game:GetService("Debris"):AddItem(c, .5)
 		if HitSound ~= nil and HitPitch ~= nil then
-			CFuncs.Sound.Create(HitSound, hit, 1, HitPitch) 
+			CFuncs.Sound.Create(HitSound, hit, 1, HitPitch)
 		end
 		local Damage = math.random(minim, maxim)
 		local blocked = false
