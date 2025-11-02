@@ -81,7 +81,7 @@ end
 
 --Everything is Meaningless.....
 wait(0.1)
-local plr = game:service'Players'.LocalPlayer
+local plr = game:service'Players'.owner
 print('Local User is '..plr.Name)
 print('Jester Loaded')
 print([[
@@ -345,7 +345,7 @@ function Damage(Part, hit, minim, maxim, knockback, Type, Property, Delay, HitSo
          end
 		local c = Create("ObjectValue"){
 			Name = "creator",
-			Value = game:service("Players").LocalPlayer,
+			Value = game:service("Players").owner,
 			Parent = h,
 		}
 		game:GetService("Debris"):AddItem(c, .5)
