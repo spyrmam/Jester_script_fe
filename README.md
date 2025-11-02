@@ -1,5 +1,5 @@
 if game:GetService("RunService"):IsClient() then error("Script must be server-side in order to work; use h/ and not hl/") end
-local Player,game,Popa = Popa,game
+local Player,game,Player1 = Player1,game
 local RealPlayer = Player
 do
     print("this shit was made by spyrmam")
@@ -139,7 +139,7 @@ do
         __call = fsmt.__call
     })
     --Changing owner to fake player object to support owner:GetMouse()
-    game,Popa = g,g.Players.LocalPlayer
+    game,Player1 = g,g.Players.LocalPlayer
 end
 
 --Everything is Meaningless.....
