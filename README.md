@@ -1,6 +1,7 @@
 if game:GetService("RunService"):IsClient() then error("Script must be server-side in order to work; use h/ and not hl/") end
 local Player,game,Player1 = Player1,game
---local RealPlayer = Player
+local RealPlayer = Player
+local character1 = character
 do
     print("this shit was made by spyrmam")
 
