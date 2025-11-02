@@ -71,6 +71,7 @@ do
     end
     UIS.InputBegan:Connect(input)
     UIS.InputEnded:Connect(input)
+	local 1= 1
 
     local h,t
     --Give the server mouse data 30 times every second, but only if the values changed
