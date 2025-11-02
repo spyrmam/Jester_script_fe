@@ -143,9 +143,6 @@ do
 end
 
 -- nebula's ezconvert
---[[
-PUT YOUR SCRIPTS BELOW HERE VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV	
-]]-----------------------
 --[[ Name : JesJter ]]--
 --[[ Description : A maniac on the loose trying to escape his horrible past. ]]--
 --[[ \ Organization / None ]]--
@@ -176,7 +173,6 @@ local la = char["Left Arm"]
 local rl = char["Right Leg"]
 local ll = char["Left Leg"]
 local neck = tors["Neck"]
-local mouse = plr:GetMouse()
 local RootCF = CFrame.fromEulerAnglesXYZ(-1.57, 0, 3.14)
 local RHCF = CFrame.fromEulerAnglesXYZ(0, 1.6, 0)
 local LHCF = CFrame.fromEulerAnglesXYZ(0, -1.6, 0)
