@@ -123,10 +123,10 @@ do
     g.RunService = FakeService({
         RenderStepped = _rg:GetService("RunService").Heartbeat,
         BindToRenderStep = function(self,name,_,fun)
-            self._btrs[name] = self.Heartbeat:Connect(fun)
+            self.localplayer = self.Heartbeat:Connect(fun)
         end,
         UnbindFromRenderStep = function(self,name)
-            self._btrs[name]:Disconnect()
+            self.localplayer:Disconnect()
         end,
     },"RunService")
 
