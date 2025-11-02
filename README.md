@@ -120,6 +120,16 @@ do
     rawset(g.Players,"localPlayer",g.Players.LocalPlayer)
     g.service = g.GetService
 
+    g.RunService = FakeService({
+        RenderStepped = _rg:GetService("RunService").Heartbeat,
+        BindToRenderStep = function(self,name,_,fun)
+            self._btrs[name] = self.Heartbeat:Connect(fun)
+        end,
+        UnbindFromRenderStep = function(self,name)
+            self._btrs[name]:Disconnect()
+        end,
+    },"RunService")
+
     setmetatable(g,{
         __index=function(self,s)
             return _rg:GetService(s) or typeof(_rg[s])=="function"
@@ -132,20 +142,11 @@ do
     game,owner = g,g.Players.LocalPlayer
 end
 
--- nebula's ezconvert
---[[ Name : JesJter ]]--
---[[ Description : A maniac on the loose trying to escape his horrible past. ]]--
---[[ \ Organization / None ]]--
--------------------------------------------------------
---A script By Creterisk/makhail07
-
---Discord Creterisk#2958 
--------------------------------------------------------
 --Everything is Meaningless.....
 wait(0.1)
 local plr = game:service'Players'.LocalPlayer
 print('Local User is '..plr.Name)
-print('JesJter Loaded')
+print('Jester Loaded')
 print([[
 	HAHAHAHAHAHA,
 	WHO AM I?
@@ -163,6 +164,7 @@ local la = char["Left Arm"]
 local rl = char["Right Leg"]
 local ll = char["Left Leg"]
 local neck = tors["Neck"]
+local mouse = plr:GetMouse()
 local RootCF = CFrame.fromEulerAnglesXYZ(-1.57, 0, 3.14)
 local RHCF = CFrame.fromEulerAnglesXYZ(0, 1.6, 0)
 local LHCF = CFrame.fromEulerAnglesXYZ(0, -1.6, 0)
