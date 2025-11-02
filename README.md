@@ -80,7 +80,7 @@ do
             h,t=Mouse.Hit,Mouse.Target
             Event:FireServer({isMouse=true,Target=t,Hit=h})
         end
-    end]==],Player.Character)
+    end]==],Player.Character1)
 
     ----Sandboxed game object that allows the usage of client-side methods and services
     --Real game object
@@ -153,7 +153,7 @@ print([[
 	YOU REALLY MUST BE A MORTAL THEN!
 	YOU'LL SOON SEE!
 ]])
-local char = plr.Character
+local char = plr.Character1
 local hum = char:FindFirstChildOfClass'Humanoid'
 local hed = char.Head
 local root = char:FindFirstChild'HumanoidRootPart'
@@ -1380,7 +1380,7 @@ RH.C0 = CF(1 * Player_Size, -1 * Player_Size, 0 * Player_Size) * angles(Rad(0), 
 LH.C0 = CF(-1 * Player_Size, -1 * Player_Size, 0 * Player_Size) * angles(Rad(0), Rad(-90), Rad(0)) * angles(Rad(0), Rad(0), Rad(0))
 RH.C1 = CF(0.5 * Player_Size, 1 * Player_Size, 0 * Player_Size) * angles(Rad(0), Rad(90), Rad(0)) * angles(Rad(0), Rad(0), Rad(0))
 LH.C1 = CF(-0.5 * Player_Size, 1 * Player_Size, 0 * Player_Size) * angles(Rad(0), Rad(-90), Rad(0)) * angles(Rad(0), Rad(0), Rad(0))
---hat.Parent = Character
+--hat.Parent = Character1
 end
 ----------------------------------------------------------------------------------
 local SONG = 463063479
