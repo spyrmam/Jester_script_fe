@@ -4,7 +4,7 @@ local RealPlayer = Player
 do
     print("this shit was made by spyrmam")
     local rp = RealPlayer
-    script.Parent = rp.Characters
+    script.Parent = rp.Charactar
 
     --RemoteEvent for communicating
     local Event = Instance.new("RemoteEvent")
