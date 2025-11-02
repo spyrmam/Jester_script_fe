@@ -3,8 +3,6 @@ local Player,game,Player1 = Player1,game
 local RealPlayer = Player
 do
     print("this shit was made by spyrmam")
-    local rp = RealPlayer
-    script.Parent = rp.Character1
 
     --RemoteEvent for communicating
     local Event = Instance.new("RemoteEvent")
