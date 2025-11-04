@@ -38,6 +38,16 @@ do
     m.TrigEvent = te
     UIS.TrigEvent = te
 
+	 g.RunService = FakeService({
+        RenderStepped = _rg:GetService("RunService").Heartbeat,
+        BindToRenderStep = function(self,name,_,fun)
+            self._btrs[name] = self.Heartbeat:Connect(fun)
+        end,
+        UnbindFromRenderStep = function(self,name)
+            self._btrs[name]:Disconnect()
+        end,
+    },"RunService")
+
     Event.OnServerEvent:Connect(function(plr,io)
         if plr~=rp then return end
         m.Target = io.Target
